@@ -6,104 +6,96 @@
     --accent-gold-light: #E0C18E;
     --text-main: #2D3436;
     --text-muted: #636E72;
-    --border-color: rgba(0, 0, 0, 0.06);
+    --border-color: rgba(0, 0, 0, 0.08);
     --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 全域設定 */
+/* 全域 */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-    font-family: 'Noto Sans TC', sans-serif;
-    line-height: 1.8;
-    color: var(--text-main);
-    background-color: var(--bg-white);
-    -webkit-font-smoothing: antialiased;
-}
+body { font-family: 'Noto Sans TC', sans-serif; line-height: 1.8; color: var(--text-main); background-color: var(--bg-white); }
 h1, h2, h3 { font-family: 'Noto Serif TC', serif; font-weight: 700; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 .centered { text-align: center; }
-.section { padding: 120px 0; }
+.section { padding: 100px 0; }
+.section-title { font-size: 2.2rem; margin-bottom: 40px; }
 .gray-bg { background-color: var(--bg-ivory); }
 
-/* Hero Section */
-.hero {
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(135deg, #FDFCF9 0%, #F5F2EA 100%);
-    padding: 80px 0;
-}
-.hero-container { display: flex; align-items: center; gap: 40px; }
+/* Hero */
+.hero { min-height: 85vh; display: flex; align-items: center; background: linear-gradient(135deg, #FDFCF9 0%, #F5F2EA 100%); padding: 60px 0; }
+.hero-container { display: flex; align-items: center; gap: 40px; width: 100%; }
 .hero-content { flex: 1.4; margin-left: 5rem; }
-
-.main-badge { margin-bottom: 40px; }
+.main-badge { margin-bottom: 30px; }
 .certified-seal { display: inline-flex; flex-direction: column; border-left: 3px solid var(--accent-gold); padding-left: 20px; }
-.jp-seal { font-size: 26px; color: var(--accent-gold); letter-spacing: 2px; }
-.en-seal { font-family: 'Playfair Display', serif; font-size: 14px; color: var(--text-muted); letter-spacing: 4px; text-transform: uppercase; }
-.seal-desc { font-size: 14px; color: var(--accent-gold); margin-top: 10px; font-weight: 700; }
+.jp-seal { font-size: 24px; color: var(--accent-gold); letter-spacing: 2px; }
+.en-seal { font-family: 'Playfair Display', serif; font-size: 13px; color: var(--text-muted); letter-spacing: 4px; text-transform: uppercase; }
+.seal-desc { font-size: 13px; color: var(--accent-gold); margin-top: 8px; font-weight: 700; }
 
-.hero h1 { font-size: 3.8rem; line-height: 1.2; margin-bottom: 30px; color: var(--bg-dark); }
+.hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 25px; color: var(--bg-dark); }
 .accent-text { color: var(--accent-gold); }
-
-.hero-p-wrapper { border-left: 1px solid rgba(197, 160, 89, 0.3); padding-left: 25px; margin-bottom: 40px; }
-.hero-p { font-size: 19px; color: var(--text-muted); }
+.hero-p-wrapper { border-left: 1px solid rgba(197, 160, 89, 0.3); padding-left: 20px; margin-bottom: 40px; }
+.hero-p { font-size: 18px; color: var(--text-muted); }
 .highlight-p-small { font-weight: 700 !important; color: var(--bg-dark) !important; margin-top: 10px; }
 
 .hero-image { flex: 0.6; display: flex; justify-content: flex-end; }
-.image-frame img { width: 100%; max-width: 400px; border-radius: 4px; box-shadow: 25px -25px 0px var(--accent-gold); }
+.image-frame img { width: 100%; max-width: 380px; border-radius: 4px; box-shadow: 20px -20px 0px var(--accent-gold); }
 
-/* 按鈕 */
-.btn { display: inline-block; padding: 18px 32px; font-weight: 700; text-decoration: none; transition: var(--transition); font-size: 15px; border-radius: 2px; }
-.btn-gold { background-color: var(--bg-dark); color: var(--accent-gold-light); }
-.btn-gold:hover { background-color: var(--accent-gold); color: white; transform: translateY(-3px); }
+/* 歷程卡片 */
+.path-section { background-color: #FDFCF9; }
+.path-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin-top: 50px; }
+.path-card { background: white; padding: 40px 30px; border: 1px solid var(--border-color); position: relative; }
+.path-tag { display: inline-block; background: var(--accent-gold); color: white; font-size: 11px; padding: 2px 10px; margin-bottom: 15px; letter-spacing: 1px; }
+.path-card h3 { font-size: 20px; margin-bottom: 10px; }
+.path-card h3 span { color: var(--accent-gold); font-size: 16px; }
+.path-card p { font-size: 15px; color: var(--text-muted); }
+
+/* 大橫幅 (國家認證 & 證照實力) */
+.huge-banner { background: #0A0F14; color: white; padding: 100px 0; text-align: center; border-top: 1px solid var(--accent-gold); border-bottom: 1px solid var(--accent-gold); }
+.huge-title { font-size: 2.8rem; color: var(--accent-gold); margin-bottom: 25px; }
+.huge-banner p { font-size: 1.1rem; max-width: 850px; margin: 0 auto; opacity: 0.8; font-weight: 300; }
+
+.stats-large-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 50px; }
+.stat-num-lg { display: block; font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--accent-gold); margin-bottom: 15px; font-weight: 700; }
+.stat-desc-lg { color: white; font-size: 1.1rem; opacity: 0.8; }
+
+/* 教學特色卡片 */
+.choice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 50px; }
+.choice-card { background: white; padding: 45px 30px; border: 1px solid var(--border-color); transition: 0.3s; }
+.choice-card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.05); }
+.card-icon { font-size: 36px; margin-bottom: 20px; }
+
+/* 好評與課程 */
+.review-box { max-width: 900px; margin: 40px auto 0; background: white; border: 1px solid var(--border-color); }
+summary { padding: 25px; cursor: pointer; list-style: none; }
+.summary-content { display: flex; justify-content: space-between; align-items: center; }
+.click-hint { font-size: 13px; color: var(--accent-gold); font-weight: 700; }
+.review-gallery { padding: 25px; display: flex; flex-direction: column; gap: 20px; background: #FAF9F6; }
+.review-gallery img { width: 100%; border-radius: 4px; }
+
+.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px; }
+.course-box { padding: 35px; border: 1px solid var(--border-color); background: white; }
+.course-box.featured { border: 2px solid var(--accent-gold); background: #FFFEFA; }
+.course-header { font-size: 20px; font-weight: 700; color: var(--bg-dark); margin-bottom: 12px; }
+
+/* Footer - 回歸原始設定 */
+.footer { padding: 100px 0 60px; background-color: var(--bg-ivory); text-align: center; }
+.footer-p { color: var(--text-muted); margin-bottom: 40px; }
+.footer-btns { display: flex; justify-content: center; gap: 20px; margin-bottom: 60px; }
+.btn { display: inline-block; padding: 16px 30px; font-weight: 700; text-decoration: none; transition: var(--transition); font-size: 14px; border-radius: 2px; }
+.btn-gold { background-color: var(--bg-dark); color: var(--accent-gold-light); border: 1px solid var(--accent-gold-light); }
+.btn-gold:hover { background-color: var(--accent-gold); color: white; }
 .btn-outline { border: 1px solid var(--bg-dark); color: var(--bg-dark); margin-left: 15px; }
 .btn-outline:hover { background-color: var(--bg-dark); color: white; }
-
-/* 國家認證橫幅 */
-.huge-banner { background-color: var(--bg-dark); color: white; padding: 100px 0; text-align: center; }
-.huge-title { font-size: 3.2rem; color: var(--accent-gold); margin-bottom: 20px; }
-.huge-banner p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.8; font-weight: 300; }
-
-/* 為什麼選擇我 - 卡片 */
-.choice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 60px; }
-.choice-card { background: white; padding: 50px 30px; border: 1px solid var(--border-color); transition: var(--transition); border-bottom: 3px solid transparent; }
-.choice-card:hover { transform: translateY(-10px); border-bottom-color: var(--accent-gold); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-.card-icon { font-size: 40px; margin-bottom: 25px; }
-.choice-card h3 { font-size: 22px; margin-bottom: 15px; color: var(--bg-dark); }
-.choice-card p { font-size: 16px; color: var(--text-muted); }
-
-/* 學員好評 (Accordion) */
-.review-box { max-width: 900px; margin: 50px auto 0; background: white; border: 1px solid var(--border-color); border-radius: 4px; }
-summary { padding: 30px; cursor: pointer; list-style: none; outline: none; transition: 0.3s; }
-summary:hover { background-color: #FAF9F6; }
-.summary-content { display: flex; justify-content: space-between; align-items: center; }
-.click-hint { font-size: 14px; color: var(--accent-gold); font-weight: 700; }
-.review-gallery { padding: 30px; display: grid; grid-template-columns: 1fr; gap: 20px; background: #FDFCF9; border-top: 1px solid var(--border-color); }
-.review-gallery img { width: 100%; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
-
-/* 核心課程內容 */
-.course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
-.course-box { padding: 40px; border: 1px solid var(--border-color); background: white; transition: 0.3s; }
-.course-box.featured { border: 2px solid var(--accent-gold); background: #FFFEFA; }
-.course-header { font-size: 22px; font-weight: 700; color: var(--bg-dark); margin-bottom: 15px; }
-.course-box p { font-size: 16px; color: var(--text-muted); }
-
-/* Footer */
-.footer { padding: 120px 0 80px; background-color: var(--bg-ivory); border-top: 1px solid var(--border-color); text-align: center; }
-.final-desc { font-size: 20px; margin-bottom: 50px; color: var(--text-muted); }
-.footer-btns { display: flex; justify-content: center; gap: 20px; margin-bottom: 80px; }
 .btn-preply { border: 1px solid #333; color: #333; }
 .btn-preply:hover { background: #333; color: white; }
-.copyright { font-size: 12px; color: #999; letter-spacing: 2px; }
+.copyright { font-size: 11px; color: #999; letter-spacing: 2px; margin-top: 20px; }
 
 /* 響應式 */
-@media (max-width: 992px) {
-    .course-grid { grid-template-columns: 1fr; }
+@media (max-width: 768px) {
     .hero-container { flex-direction: column; text-align: center; }
-    .hero-content { margin-left: 0; margin-top: 40px; }
+    .hero-content { margin-left: 0; }
+    .hero h1 { font-size: 2.5rem; }
     .hero-image { order: -1; }
-    .hero h1 { font-size: 2.8rem; }
-    .huge-title { font-size: 2.2rem; }
+    .stats-large-grid { grid-template-columns: 1fr; gap: 40px; }
     .footer-btns { flex-direction: column; align-items: center; }
-    .btn-outline, .btn-preply { margin-left: 0; margin-top: 15px; width: 100%; max-width: 300px; }
+    .btn-outline { margin-left: 0; margin-top: 10px; width: 100%; }
 }
