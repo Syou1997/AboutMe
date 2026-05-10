@@ -521,9 +521,11 @@ a {
     position: relative; 
     padding-bottom: 56.25%; 
     height: 0; 
+    width: 100%; /* 確保寬度是 100% */
     border-radius: 20px; 
     overflow: hidden; 
     box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
+    background: #000; /* 增加背景色防止加載前閃白 */
 }
 
 .video-container iframe { 
@@ -647,6 +649,18 @@ a {
         flex-direction: column;
         text-align: center;
     }
+    
+    /* 關鍵：確保專訪區塊的影片側在手機版佔滿寬度 */
+    .video-side {
+        width: 100%;
+        margin-bottom: 30px; /* 增加影片與下方文字的間距 */
+    }
+
+    .text-side {
+        width: 100%;
+    }
+
+    /* 其他原有的設定... */
     .hero h1 { font-size: 3rem; }
     .timeline { padding-left: 40px; }
     .timeline::before { left: 40px; }
