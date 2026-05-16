@@ -279,48 +279,120 @@ a {
 /* =========================================
    8. Timeline Section
    ========================================= */
-.timeline { 
-    position: relative; 
-    max-width: 850px; 
-    margin: 80px auto 0; 
-    padding-left: 160px; 
+.timeline {
+    position: relative;
+    max-width: 1000px; /* 微調總寬度，讓放大後的圖文有足夠空間 */
+    margin: 80px auto 0;
+    padding-left: 160px;
 }
 
-.timeline::before { 
-    content: ''; 
-    position: absolute; 
-    left: 160px; 
-    width: 3px; 
-    height: 100%; 
-    background: var(--primary-main); 
-    opacity: 0.4; 
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 160px;
+    width: 3px;
+    height: 100%;
+    background: var(--primary-main);
+    opacity: 0.4;
 }
 
-.timeline-item { 
-    position: relative; 
-    padding-left: 50px; 
-    margin-bottom: 70px; 
+.timeline-item {
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 70px;
 }
 
-.time-tag { 
-    position: absolute; 
-    left: -160px; 
-    font-weight: 700; 
-    color: var(--primary-deep); 
-    font-size: 1.4rem; 
+.time-tag {
+    position: absolute;
+    left: -160px;
+    font-weight: 700;
+    color: var(--primary-deep);
+    font-size: 1.4rem;
 }
 
-.timeline-item::after { 
-    content: ''; 
-    position: absolute; 
-    left: -9px; 
-    top: 12px; 
-    width: 18px; 
-    height: 18px; 
-    border-radius: 50%; 
-    background: #fff; 
-    border: 4px solid var(--accent-gold); 
-    z-index: 2; 
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: -9px;
+    top: 12px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 4px solid var(--accent-gold);
+    z-index: 2;
+}
+
+/* --- 圖文左右佈局（調整為 1:1 等寬比例） --- */
+.timeline-flex-wrap {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* 稍微加寬中間的間距 */
+}
+
+.time-text-side {
+    flex: 1; /* 左右等寬 */
+}
+
+.time-img-side {
+    flex: 1; /* 左右等寬 */
+}
+
+/* --- 圖片縮放特效（調大 max-height 限制） --- */
+.time-img-side img {
+    width: 100%;
+    height: auto;
+    max-height: 260px; /* 💡 從 150px 放大到 260px，讓圖片更清晰 */
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(138, 77, 85, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* 懸停放大 */
+.time-img-side img:hover {
+    transform: scale(1.05);
+}
+
+/* 點擊縮小 */
+.time-img-side img:active {
+    transform: scale(0.95);
+}
+
+/* --- 新增：圖文並排左右佈局 --- */
+.timeline-flex-wrap {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.time-text-side {
+    flex: 1.3;
+}
+
+.time-img-side {
+    flex: 0.7;
+}
+
+/* --- 新增：圖片縮放特效 (Transition & Scale) --- */
+.time-img-side img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(138, 77, 85, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* 懸停放大 */
+.time-img-side img:hover {
+    transform: scale(1.05);
+}
+
+/* 點擊縮小 */
+.time-img-side img:active {
+    transform: scale(0.95);
 }
 
 /* =========================================
@@ -675,4 +747,47 @@ a {
     .footer-btns { flex-direction: column; }
     .path-grid { grid-template-columns: 1fr; }
     .stat-num-lg { font-size: 2rem; }
+}
+/* =========================================
+   8b. Timeline 響應式手機版優化 (RWD)
+   ========================================= */
+@media (max-width: 992px) {
+    .timeline {
+        padding-left: 40px;
+    }
+    
+    .timeline::before {
+        left: 40px;
+    }
+    
+    .time-tag {
+        position: relative;
+        left: 0;
+        display: block;
+        margin-bottom: 15px;
+    }
+    
+    .timeline-item {
+        padding-left: 30px;
+    }
+    
+    .timeline-item::after {
+        left: -39px;
+        top: 6px;
+    }
+    
+    /* 手機版轉為上下排列，圖片會自動滿寬撐大 */
+    .timeline-flex-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .time-img-side {
+        width: 100%;
+    }
+    
+    .time-img-side img {
+        max-height: 250px; /* 手機版也維持清晰的大圖尺寸 */
+    }
 }
